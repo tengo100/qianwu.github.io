@@ -1,7 +1,9 @@
 ---
-title: 框架之间的通信
+title: 框架之间的交互
 date: 2018-01-08 16:00:31
-tags:
+tags: javascript
+categories: javascript
+
 ---
 
 1.top、parent、window、self 之间的关系
@@ -11,7 +13,7 @@ top表示最外层框架（...window对象）
 parent表示当前框架的父框架（...window对象）
 window表示当前框架（...window对象）
 self===window
-
+<!--more-->
 2.window.frames
 
 ---
