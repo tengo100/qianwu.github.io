@@ -1,9 +1,8 @@
 ---
-title: frames
+title: 框架之间的通信
 date: 2018-01-08 16:00:31
 tags:
 ---
-### 框架之间的通信
 
 1.top、parent、window、self 之间的关系
 
