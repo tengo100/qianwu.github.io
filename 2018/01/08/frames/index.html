@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="千五">
 <meta property="og:description" content="1.top、parent、window、self 之间的关系">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-09T14:31:14.000Z">
+<meta property="og:updated_time" content="2018-01-13T11:50:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="框架之间的交互">
 <meta name="twitter:description" content="1.top、parent、window、self 之间的关系">
@@ -362,21 +362,16 @@
       
 
       
-        <p>1.top、parent、window、self 之间的关系</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>top表示最外层框架（…window对象）<br>parent表示当前框架的父框架（…window对象）<br>window表示当前框架（…window对象）<br>self===window</p>
-<p>2.window.frames</p>
-<hr>
+        <h6 id="1-top、parent、window、self-之间的关系"><a href="#1-top、parent、window、self-之间的关系" class="headerlink" title="1.top、parent、window、self 之间的关系"></a>1.top、parent、window、self 之间的关系</h6><h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>top表示最外层框架（…window对象）<br>parent表示当前框架的父框架（…window对象）<br>window表示当前框架（…window对象）<br>self===window</p>
+<h6 id="2-window-frames"><a href="#2-window-frames" class="headerlink" title="2.window.frames"></a>2.window.frames</h6><hr>
 <p>框架集合对象<br>可以通过框架的name与索引访问到相应的框架window对象<br>例如：<br><strong>window.frames[0] ,<br>window.frames[‘mainFrame’]</strong></p>
-<p>3.contentWindow,contentDocument   </p>
-<hr>
+<h6 id="3-contentWindow-contentDocument"><a href="#3-contentWindow-contentDocument" class="headerlink" title="3.contentWindow,contentDocument"></a>3.contentWindow,contentDocument</h6><hr>
 <p>所有浏览器都有contentWindow，非ie有contentDocument<br>代表选定框架的window对象 或文档对象document</p>
 <p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'mainFrame'</span>).contentWindow<span class="comment">//id为mainFrame框架的window对象 </span></span><br><span class="line"><span class="built_in">document</span>.getElelmentById(<span class="string">'mainFrame'</span>).contentDocument<span class="comment">//idweimainFrame框架的document对象</span></span><br></pre></td></tr></table></figure></p>
-<p>4.子框架操作父级框架</p>
-<hr>
+<h6 id="4-子框架操作父级框架"><a href="#4-子框架操作父级框架" class="headerlink" title="4.子框架操作父级框架"></a>4.子框架操作父级框架</h6><hr>
 <p>==key： parent==</p>
 <p>例如:获取父框架的DOM<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parent.document.getElementById(<span class="string">'id'</span>)<span class="comment">//父级</span></span><br><span class="line">parent.parent.document.getElementById(<span class="string">'id'</span>)<span class="comment">//父级的父级</span></span><br><span class="line">top.document.getElementById(<span class="string">'id'</span>)<span class="comment">//最外层父级</span></span><br></pre></td></tr></table></figure></p>
-<p>5.父框架操作子级框架</p>
-<hr>
+<h6 id="5-父框架操作子级框架"><a href="#5-父框架操作子级框架" class="headerlink" title="5.父框架操作子级框架"></a>5.父框架操作子级框架</h6><hr>
 <p>==key：获取子框架的window对象==</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'mainFrame'</span>).contentWindow.document.getElementById(<span class="string">'childElement'</span>)<span class="comment">//子框架元素</span></span><br></pre></td></tr></table></figure>
       
@@ -534,7 +529,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-top、parent、window、self-之间的关系"><span class="nav-number">1.</span> <span class="nav-text">1.top、parent、window、self 之间的关系</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-window-frames"><span class="nav-number">1.</span> <span class="nav-text">2.window.frames</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-contentWindow-contentDocument"><span class="nav-number">2.</span> <span class="nav-text">3.contentWindow,contentDocument</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-子框架操作父级框架"><span class="nav-number">3.</span> <span class="nav-text">4.子框架操作父级框架</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-父框架操作子级框架"><span class="nav-number">4.</span> <span class="nav-text">5.父框架操作子级框架</span></a></li></ol></div>
             
 
           </div>
