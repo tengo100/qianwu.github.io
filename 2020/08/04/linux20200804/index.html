@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Linux目录结构/ bin boot dev etc home lib proc usr var …">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux基础目录与常用命令解析">
+<meta property="og:url" content="http://yoursite.com/2020/08/04/linux20200804/index.html">
+<meta property="og:site_name" content="千五">
+<meta property="og:description" content="Linux目录结构/ bin boot dev etc home lib proc usr var …">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-04T06:59:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux基础目录与常用命令解析">
+<meta name="twitter:description" content="Linux目录结构/ bin boot dev etc home lib proc usr var …">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/08/04/linux20200804/"/>
+
+
+
+
+
+  <title>linux基础目录与常用命令解析 | 千五</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千五</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/linux20200804/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="千五">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千五">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux基础目录与常用命令解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-04T14:27:31+08:00">
+                2020-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a><u>Linux目录结构</u></h5><p>/<br> bin<br> boot<br> dev<br> etc<br> home<br> lib<br> proc<br> usr<br> var<br> …<br><a id="more"></a></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/bin 存放二进制可执行文件(ls,cat,mkdir等) </span><br><span class="line">/boot 存放用于系统引导时使用的各种文件</span><br><span class="line">/dev 用于存放设备文件</span><br><span class="line">/etc  存放系统配置文件(环境变量)</span><br><span class="line">/home 存放所有用户文件的根目录</span><br><span class="line">/root 超级用户目录</span><br><span class="line">/lib 存放跟文件系统中的程序运行所需要的共享库及内核模块</span><br><span class="line">/mnt 系统管理员安装临时文件系统的安装点</span><br><span class="line">/opt 额外安装的可选应用程序包所放置的位置</span><br><span class="line">/proc 虚拟文件系统，存放当前内存的映射</span><br><span class="line">/sbin 存放二进制可执行文件，只有root才能访问</span><br><span class="line">/tmp  用于存放各种临时文件</span><br><span class="line">/usr  用于存放系统应用程序，比较重要的目录/usr/local 本地管理员软件安装目录</span><br><span class="line">/var 用于存放运行时需要改变数据的文件</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a><u>Linux常用命令</u></h5><h6 id="文件和目录命令"><a href="#文件和目录命令" class="headerlink" title="文件和目录命令"></a>文件和目录命令</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">---</span><br><span class="line">ls -a , all列出当前目录下所有文件，包括以“.”开头的 隐藏 文件</span><br><span class="line">ls -l , long listing format，列出明细列表信息</span><br><span class="line">ls -l *.db , 列出以.db结尾的文件的详细信息，*为通配符代表任意多个字符</span><br><span class="line">ls s* , 列出目前工作目录下所有名称是 s 开头的文件</span><br><span class="line"></span><br><span class="line">ll</span><br><span class="line">---</span><br><span class="line">ll 是long listing format的缩写，列出当前位置文件及文件夹的明细列表，包括隐藏文件。</span><br><span class="line"></span><br><span class="line">pwd</span><br><span class="line">---</span><br><span class="line">pwd 是print working directory的缩写，打印当前工作目录</span><br><span class="line"></span><br><span class="line">cd</span><br><span class="line">---</span><br><span class="line">cd 是change directory的缩写，切换工作目录</span><br><span class="line">cd ~ , 切换到用户主目录</span><br><span class="line">cd .. , 切到上一级目录</span><br><span class="line">cd ../.. , ,切换到当前目录的上两层目录</span><br><span class="line">cd - , 切到上一次所在的目录</span><br><span class="line">cd / , 切到系统根目录</span><br><span class="line">cd /usr , 切到usr目录</span><br><span class="line"></span><br><span class="line">touch</span><br><span class="line">---</span><br><span class="line">创建文件或修改文件时间</span><br><span class="line">如果文件 不存在，可以创建一个空白文件</span><br><span class="line">如果文件 已经存在，可以修改文件的末次修改日期</span><br><span class="line">例如：touch a.txt，表示创建文件a.txt</span><br><span class="line"></span><br><span class="line">mkdir</span><br><span class="line">---</span><br><span class="line">mkdir 是make directory的缩写，创建目录</span><br><span class="line">mkdir -p ./dir1/dir2</span><br><span class="line">表示在当前目录下创建dir1目录，再在其中创建子目录dir2 </span><br><span class="line">-p 表示父目录，parent当父目录不存在时，同时创建父目录，也就是递归创建目录。</span><br><span class="line"></span><br><span class="line">rm</span><br><span class="line">---</span><br><span class="line">rm 是remove的缩写，删除文件</span><br><span class="line">-r ，recursive递归删除，删除目录及目录下所有文件，非空也可以删除</span><br><span class="line">-f ，force强制删除</span><br><span class="line">rm -rf * ，强制删除当前目录下所有文件</span><br><span class="line">rm word* ，删除以word开头的文件</span><br><span class="line">rm *.txt ，删除以.txt为后缀的文件</span><br><span class="line"></span><br><span class="line">cp</span><br><span class="line">---</span><br><span class="line">cp 是 copy 的缩写，复制文件</span><br><span class="line">-r ：recursive递归复制。若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和</span><br><span class="line">文件。</span><br><span class="line">例如：cp -ai ./dir1 ./dir2</span><br><span class="line"></span><br><span class="line">mv</span><br><span class="line">---</span><br><span class="line">mv 是 move 的缩写，表示文件移动，该命令用来剪切文件或者将文件改名</span><br><span class="line">语法：mv 源文件 目标文件或目录</span><br><span class="line">mv dir1 dir2 ，移动一个文件到指定目录（目标文件存在即移动源文件到指定目录）</span><br><span class="line">mv dir1 dir2 ，重命名一个文件或者目录（目标文件不存在就是更改文件名）</span><br><span class="line">mv /a/a.txt /b/b.txt ：移动a目录下的a.txt到b目录下，并改名为b.txt mv /b/b.txt /b/c ：移动b目录下的b.txt到b目录下的c目录下</span><br><span class="line"></span><br><span class="line">cat</span><br><span class="line">---</span><br><span class="line">cat 是 concatenate 的缩写，原意是连接和打印文件。</span><br><span class="line">cat 的作用是显示文件内容，不可以进行修改。</span><br><span class="line">cat 会一次显示所有的内容，适合 查看内容较少 的文本文件</span><br><span class="line"></span><br><span class="line">-n 或 --number：由 1 开始对所有输出的行数编号。</span><br><span class="line">-b 或 --number-nonblank：和 -n 相似，只不过对于空白行不编号。</span><br><span class="line"></span><br><span class="line">less</span><br><span class="line">---</span><br><span class="line">less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移</span><br><span class="line">动，而且 less 在查看之前不会加载整个文件。</span><br><span class="line">语法：less [参数] 文件</span><br><span class="line">Linux中命令cat、more、less均可用来查看文件内容，主要区别有：</span><br><span class="line">cat是一次性显示整个文件的内容，还可以将多个文件连接起来显示，它常与重定向符号配合</span><br><span class="line">使用，适用于文件内容少的情况；</span><br><span class="line">more和less一般用于显示文件内容超过一屏的内容，并且提供翻页的功能。more比cat强大，</span><br><span class="line">提供分页显示的功能，less比more更强大，提供翻页，跳转，查找等命令。而且more和less</span><br><span class="line">都支持：用空格显示下一页，按键b显示上一页。</span><br><span class="line">常用参数说明：</span><br><span class="line">空格键 滚动一页</span><br><span class="line">回车键 滚动一行</span><br><span class="line">[pagedown]： 向下翻动一页</span><br><span class="line">[pageup]： 向上翻动一页</span><br><span class="line">/字符串：向下搜索"字符串"的功能</span><br><span class="line">?字符串：向上搜索"字符串"的功能</span><br><span class="line">n：重复前一个搜索（与 / 或 ? 有关）</span><br><span class="line">N：反向重复前一个搜索（与 / 或 ? 有关）</span><br><span class="line"></span><br><span class="line">head</span><br><span class="line">---</span><br><span class="line">显示文件头n行内容</span><br><span class="line">语法结构：head [-n] 文件名</span><br><span class="line">-n指定显示多少行</span><br><span class="line">例如：head -n 10 file.txt</span><br><span class="line">表示显示file.txt文件的前10行</span><br><span class="line"></span><br><span class="line">tail</span><br><span class="line">---</span><br><span class="line">显示文件尾几行内容</span><br><span class="line">语法结构：tail [-nf] 文件名</span><br><span class="line">-n 指定显示多少行，没有-n默认10行 -f 用于实时追踪文件的所有更新</span><br><span class="line">常用于查阅正在改变的日志文件</span><br><span class="line">例如: tail -f -n 3 file.log</span><br><span class="line">表示显示file.log文件的最后3行，并在file.log文件更新时实时追加显示</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span>、&gt;&gt;</span><br><span class="line">---</span><br><span class="line">echo 会在终端中显示参数指定的文字，通常会和 重定向 联合使用</span><br><span class="line">Linux 允许将命令执行结果 重定向到一个 文件</span><br><span class="line">将本应显示在终端上的内容 输出／追加 到指定文件中</span><br><span class="line"><span class="meta">&gt;</span> 表示输出，会覆盖文件原有的内容</span><br><span class="line"><span class="meta">&gt;</span>&gt; 表示追加，会将内容追加到已有文件的末尾</span><br><span class="line">例如： ls -l &gt;file</span><br><span class="line">表示将ls -l命令结果输出到file文件中，如果file不存在就创建，如果存在则覆盖原有内容。</span><br><span class="line">例如：echo hello &gt; a.txt</span><br><span class="line"></span><br><span class="line">find</span><br><span class="line">---</span><br><span class="line">1）按照修改时间查找</span><br><span class="line">· find ./ -mtime -1 · 表示查找当前目录下最近1天内（也就是1*24小时）修改过的文件</span><br><span class="line">2）按照尺寸查找</span><br><span class="line">· find ./ -size -1M · 查找当前目录下小于1M的文件</span><br><span class="line">3）按照文件类型查找</span><br><span class="line">· find ./ -type f · find ./ -type d · 查找当前目录下的文件或目录（f为普通文件，d为目录）</span><br><span class="line">4）按照文件名称查找</span><br><span class="line">· find . -name '*.txt' · 查找当前目录下的文件或目录（f为普通文件，d为目录）</span><br><span class="line">5）查找到文件后执行操作</span><br><span class="line">· find . -mtime +2 -exec rm &#123;&#125; \; · execute,执行</span><br><span class="line">· -exec 命令 &#123;&#125; \表示对查出文件操作</span><br><span class="line">6)、文件内字符串查找</span><br><span class="line">· grep -i 'steven' ./ -r –n · 表示在当前目录及子目录下查找文件内容包含“steven”的文件</span><br><span class="line">· -i是ignore的意思，表示忽略大小写，不区分大小写；</span><br><span class="line">· -r是recursive，表示递归查找。</span><br><span class="line"></span><br><span class="line">查看进程</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">ps -ef 是显示所有进程信息，后面是从进程中查找java进程是否存在：</span><br><span class="line">| 可以将多条命令连接在一起执行</span><br><span class="line">grep 命令用于查找文件里符合条件的字符串。</span><br><span class="line">ps -ef|grep java</span><br></pre></td></tr></table></figure>
+<h6 id="压缩、解压和打包"><a href="#压缩、解压和打包" class="headerlink" title="压缩、解压和打包"></a>压缩、解压和打包</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">tar</span><br><span class="line">---</span><br><span class="line">tar 是tape archive的缩写，原意是把文件打包并上传到磁带存档，打包就是将多个文件包成一个</span><br><span class="line">大文件。</span><br><span class="line">选项有：zxvf、zcvf、jxvf、jcvf -z 表示处理tar.gz文件；</span><br><span class="line">-x 来自单词extract，提取、提炼的意思。 -x 表示解压；</span><br><span class="line">-v 来自单词verbose；（vf可以理解成verbose file，也就是各种各样的文件）</span><br><span class="line">-c 来自单词compress，压缩的意思。 -c 表示压缩文件；</span><br><span class="line">-j 表示处理bzip2格式（后缀为tar.bz2）的文件；</span><br><span class="line">-C 参数可以指定解压到特定目录；</span><br><span class="line"></span><br><span class="line">1)、 tar -zxvf file.tar.gz -C ./test</span><br><span class="line">解压tar.gz到当前目录下的test子目录中</span><br><span class="line">2)、tar -zcvf /dir2/file.tar.gz ./dir1/</span><br><span class="line">压缩tar.gz（把当前目录下的dir1目录及子目录下所有文件压缩到dir2目录下，文件名为file.tar.gz。当使</span><br><span class="line">用tar -zxvf file.tar.gz解压出来时，就带有目录dir1） 3)、tar -jxvf file.tar.bz2</span><br><span class="line">解压tar.bz2到当前目录下</span><br><span class="line">4)、tar -jcvf file.tar.bz2 ./dir1/</span><br><span class="line">压缩tar.bz2（把当前目录下的dir1目录及子目录下所有文件压缩到当前目录下，文件名为file.tar.gz2）</span><br></pre></td></tr></table></figure>
+<h5 id="vim常用命令"><a href="#vim常用命令" class="headerlink" title="vim常用命令"></a><u>vim常用命令</u></h5><hr>
+<p>基本上 vi/vim 共分为三种模式，分别是命令模式（Command mode），输入模式（Insert mode）和底<br>线命令模式（Last line mode）。 这三种模式的作用分别是：</p>
+<h6 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h6><p>用户刚刚启动 vi/vim，便进入了命令模式。<br>此状态下敲击键盘动作会被Vim识别为命令，而非输入字符。比如我们此时按下i，并不会输入一个字<br>符，i被当作了一个命令。<br>以下是常用的几个命令：<br>i 切换到输入模式，以输入字符。<br>x 删除当前光标所在处的字符。<br>: 切换到命令模式，以在最底一行输入命令。<br>若想要编辑文本：启动Vim，进入了命令模式，按下i，切换到输入模式。<br>命令模式只有一些最基本的命令，因此仍要依靠底线命令模式输入更多命令。</p>
+<h6 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h6><p>在命令模式下按下“i”就进入了输入模式。<br>在输入模式中，可以使用以下按键：<br>字符按键以及Shix组合，输入字符<br>ENTER，回车键，换行<br>BACK SPACE，退格键，删除光标前一个字符<br>DEL，删除键，删除光标后一个字符<br>方向键，在文本中移动光标<br>HOME/END，移动光标到行首/行尾<br>Page Up/Page Down，上/下翻页<br>Insert，切换光标为输入/替换模式，光标将变成竖线/下划线<br>ESC，退出输入模式，切换到命令模式</p>
+<h6 id="命令模式-1"><a href="#命令模式-1" class="headerlink" title="命令模式"></a>命令模式</h6><p>在命令模式下按下:（英文冒号）就进入了命令模式。<br>命令模式可以输入单个或多个字符的命令，可用的命令非常多。<br>在命令模式中，基本的命令有（已经省略了冒号）：<br>q 退出程序<br>w 保存文件<br>按ESC键可随时退出命令模式。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/04/20190604/" rel="next" title="jsTips 01 值到字符串转换的几种方法对比">
+                <i class="fa fa-chevron-left"></i> jsTips 01 值到字符串转换的几种方法对比
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDM0NS8yMDg3Nw=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="千五" />
+          <p class="site-author-name" itemprop="name">千五</p>
+           
+              <p class="site-description motion-element" itemprop="description">千五的博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Linux目录结构"><span class="nav-number">1.</span> <span class="nav-text">Linux目录结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">2.</span> <span class="nav-text">Linux常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#文件和目录命令"><span class="nav-number">2.1.</span> <span class="nav-text">文件和目录命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#压缩、解压和打包"><span class="nav-number">2.2.</span> <span class="nav-text">压缩、解压和打包</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vim常用命令"><span class="nav-number">3.</span> <span class="nav-text">vim常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#命令模式"><span class="nav-number">3.1.</span> <span class="nav-text">命令模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#输入模式"><span class="nav-number">3.2.</span> <span class="nav-text">输入模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#命令模式-1"><span class="nav-number">3.3.</span> <span class="nav-text">命令模式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">千五</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
